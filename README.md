@@ -6,6 +6,8 @@ A stock IOSU would trip over the isfshax superblock and crash. This patch allows
 
 **Warning** This should only be used when ISFShax is actually installed.
 
+**This plugin also blocks system updates since v2.0 (game updates still work)**
+
 ## How to use
 
 Put the `wafel_isfshax_patch.ipx` together with `wafel_core.ipx` from stroopwafel in /wiiu/ios_plugins on your sdcard
