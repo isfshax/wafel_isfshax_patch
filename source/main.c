@@ -24,12 +24,6 @@ void kern_main()
     // Patch IOS-FS thing
     ASM_PATCH_K(0x1072272C, "mvn r5, #0x8000")
 
-    // Disable panic in kernel
-    //ASM_PATCH_K(0x08129ce0, "bx lr\n");
-
-    // format MLC if needed
-    //ASM_PATCH_K(0x05027D24, ".thumb\nnop\nnop\n");
-
     debug_printf("isfshax patch applied\n");
 }
 
