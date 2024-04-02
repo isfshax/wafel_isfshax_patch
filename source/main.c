@@ -22,11 +22,14 @@ void kern_main()
     debug_printf("init_linking symbol at: %08x\n", wafel_find_symbol("init_linking"));
 
     // Patch IOS-FS thing
-    ASM_PATCH_K(0x1072272C, "mvn r5, #0x8000")
+    ASM_PATCH_K(0x1072272C, "mvn r5, #0x8000");
 
     // block system updates by overwriting url
     U32_PATCH_K(0xe22830e0, 0);
     U32_PATCH_K(0xe22b2a78, 0);
+
+    // patch out the format with an endless loop
+    BRANCH_PATCH_K(0x107e8178,0x107e8178)
 
     debug_printf("isfshax patch applied\n");
 }
