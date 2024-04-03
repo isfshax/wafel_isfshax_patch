@@ -28,8 +28,8 @@ void kern_main()
     U32_PATCH_K(0xe22830e0, 0);
     U32_PATCH_K(0xe22b2a78, 0);
 
-    // patch out the format with an endless loop
-    BRANCH_PATCH_K(0x107e8178,0x107e8178)
+    // patch out the format with an undefined instruction (crash)
+    U32_PATCH_K(0x107e8178,0xFFFFFFFF);
 
     debug_printf("isfshax patch applied\n");
 }
