@@ -28,6 +28,9 @@ void kern_main()
     U32_PATCH_K(0xe22830e0, 0);
     U32_PATCH_K(0xe22b2a78, 0);
 
+    // make update check return success (else game updates don't work)
+    ASM_PATCH_K(0xe204fb68, "mov r0, #0");
+
     // patch out the format with an undefined instruction (crash)
     U32_PATCH_K(0x107e8178,0xFFFFFFFF);
 
