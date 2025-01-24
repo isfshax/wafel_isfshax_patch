@@ -25,10 +25,10 @@ void kern_main()
     ASM_PATCH_K(0x1072272C, "mvn r5, #0x8000");
 
     // Block boot1 updating
-    ASM_T_PATCH_K(0x05100688, "movs r0, #0\n bx lr");
-
-    // make update check return success (else game updates don't work)
-    ASM_PATCH_K(0xe204fb68, "mov r0, #0");
+    ASM_T_PATCH_K(0x05100688,
+                  "movs r0, #0\n"
+                  "bx lr\n"
+                  );
 
     // patch out the format with an undefined instruction (crash)
     U32_PATCH_K(0x107e8178,0xFFFFFFFF);
