@@ -8,7 +8,7 @@ A stock IOSU would trip over the isfshax superblock and crash. This patch allows
 
 ## How to use
 
-Put the `wafel_isfshax_patch.ipx` (or `5isfshax.ipx`) together with `wafel_core.ipx` from stroopwafel in `/wiiu/ios_plugins` on your SD Card.
+Put the `5isfshax.ipx` together with `wafel_core.ipx` from stroopwafel in `/wiiu/ios_plugins` on your SD Card.
 
 ## Building
 
