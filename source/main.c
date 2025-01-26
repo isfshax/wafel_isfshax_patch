@@ -24,11 +24,14 @@ void kern_main()
     // Patch IOS-FS thing
     ASM_PATCH_K(0x1072272C, "mvn r5, #0x8000");
 
-    // Block boot1 updating
+    // Don't update boot1
     ASM_T_PATCH_K(0x05100688,
                   "movs r0, #0\n"
                   "bx lr\n"
                   );
+
+    // this makes the boot1 update fail, in case it still tries to update boo1
+    U32_PATCH_SK(('b','o','o','t','.','i','m','g', 0, 0, 0, 0), 0x08100000, 0);
 
     // patch out the format with an undefined instruction (crash)
     U32_PATCH_K(0x107e8178,0xFFFFFFFF);
